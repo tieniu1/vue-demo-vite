@@ -1,0 +1,12 @@
+<template>
+  <div>
+    <input type="text" />
+    <input type="text" />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+</script>
+
+<style scoped></style>

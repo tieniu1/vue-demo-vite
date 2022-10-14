@@ -1,0 +1,23 @@
+<template>
+  <div><Child></Child></div>
+</template>
+<script setup>
+import { defineAsyncComponent } from 'vue';
+import LoadingComponent from './components/LoadingComponent.vue';
+import ErrorComponent from './components/ErrorComponent.vue';
+
+const Child = defineAsyncComponent(() => import('./components/Child.vue'));
+//  高级写法，处理加载失败状态
+const Child1 = defineAsyncComponent({
+  //  加载函数
+  loader: () => import('./components/Child1.vue'),
+  // 加载异步组件时使用的组件
+  loadingComponent: LoadingComponent,
+  // 展示加载组件前的延迟时间，默认未200ms
+  delay: 200,
+  // 加载失败后展示的组件
+  errorComponent: ErrorComponent,
+  //
+});
+</script>
+<style lang="less" scoped></style>
